@@ -3,7 +3,7 @@ import schedule
 from time import sleep
 from threading import Thread
 import json
-bot = telebot.TeleBot("1608467125:AAFcK5ojSjzDqb10gT2gRDUr5pQHffU8BGk")
+bot = telebot.TeleBot("xxxx:aaaaaa")
 Time_Table={
     '0':{
         '10:05':"Model Checking https://meet.google.com/lookup/f7mserusla?authuser=2&hs=179",
