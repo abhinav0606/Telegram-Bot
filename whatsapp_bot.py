@@ -4,6 +4,7 @@ from time import sleep
 from threading import Thread
 import json
 bot = telebot.TeleBot("1608467125:AAFcK5ojSjzDqb10gT2gRDUr5pQHffU8BGk")
+diccy=[]
 Time_Table={
     '0':{
         '10:05':"Model Checking https://meet.google.com/lookup/f7mserusla?authuser=2&hs=179",
@@ -49,6 +50,10 @@ timing=str(datetime.datetime.now()).split(" ")[1][:5]
 def handle_command(message):
     bot.reply_to(message, f"Hii {message.from_user.first_name} \n Welcome to the Bot")
     data_json=json.load(open('id.json'))
+    if message.from_user.id in diccy:
+        pass
+    else:
+        diccy.append(message.from_user.id)
     if message.from_user.id in data_json.keys():
         pass
     else:
@@ -103,43 +108,43 @@ def function_to_run():
     else:
         for i in Time_Table[day].keys():
             string = string + i + ":" + Time_Table[day][i] + "\n\n"
-    for i in djson.keys():
+    for i in diccy:
         bot.send_message(i,f"Good Morning {bot.get_chat(i).first_name} {bot.get_chat(i).last_name} \n\n Today you have these classes \n {string}")
 def mc():
     djson=json.load(open('id.json'))
-    for i in djson.keys():
+    for i in diccy:
         bot.send_message(i,f"Hello {bot.get_chat(i).first_name} You have Model Checking Class in 10 mins \n\nLink is https://meet.google.com/lookup/f7mserusla?authuser=2&hs=179")
 def cd():
     djson=json.load(open('id.json'))
-    for i in djson.keys():
+    for i in diccy:
         bot.send_message(i,f"Hello {bot.get_chat(i).first_name} You have Compiler Design Class in 10 mins \n\nLink is http://meet.google.com/vrp-tron-smz")
 def focs():
     djson=json.load(open('id.json'))
-    for i in djson.keys():
+    for i in diccy:
         bot.send_message(i,f"Hello {bot.get_chat(i).first_name} You have FOCS Class in 10 mins \n\nLink is https://meet.google.com/lookup/fuu2mt3642?authuser=2&hs=179")
 def oe():
     djson=json.load(open('id.json'))
-    for i in djson.keys():
+    for i in diccy:
         bot.send_message(i,f"Hello {bot.get_chat(i).first_name} You have OE Class in 10 mins \n\nLink is https://meet.google.com/lookup/b24uvlqe4j?authuser=2&hs=179")
 def ivp():
     djson=json.load(open('id.json'))
-    for i in djson.keys():
+    for i in diccy:
         bot.send_message(i,f"Hello {bot.get_chat(i).first_name} You have IVP Class in 10 mins \n\nLink is https://meet.google.com/lookup/dgbr7vdw3e?authuser=2&hs=179")
 def re():
     djson=json.load(open('id.json'))
-    for i in djson.keys():
+    for i in diccy:
         bot.send_message(i,f"Hello {bot.get_chat(i).first_name} You have RE Class in 10 mins \n\nLink is https://meet.google.com/lookup/hvnukyh3yj?authuser=2&hs=179")
 def dm():
     djson=json.load(open('id.json'))
-    for i in djson.keys():
+    for i in diccy:
         bot.send_message(i,f"Hello {bot.get_chat(i).first_name} You have Data Mining Class in 10 mins \n\nLink is https://meet.google.com/lookup/dihntijjea?authuser=2&hs=179")
 def miot():
     djson=json.load(open('id.json'))
-    for i in djson.keys():
+    for i in diccy:
         bot.send_message(i,f"Hello {bot.get_chat(i).first_name} You have Microcontroller Class in 10 mins \n\nLink is https://zoom.us/j/94645740622?pwd=THRycXNDbHZZNThsc3RSWVZPUHd2dz09")
 def miotlab():
     djson=json.load(open('id.json'))
-    for i in djson.keys():
+    for i in diccy:
         bot.send_message(i,f"Hello {bot.get_chat(i).first_name} You have MIOT LAB Class in 10 mins \n\nLink is https://meet.google.com/lookup/epgqghcnc6?authuser=2&hs=179")
 schedule.every().monday.at("02:30").do(function_to_run)
 schedule.every().tuesday.at("02:30").do(function_to_run)
