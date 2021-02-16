@@ -49,10 +49,13 @@ timing=str(datetime.datetime.now()).split(" ")[1][:5]
 def handle_command(message):
     bot.reply_to(message, f"Hii {message.from_user.first_name} \n Welcome to the Bot")
     data_json=json.load(open('id.json'))
-    data_json[message.from_user.id]="YES"
-    writer=json.dumps(data_json)
-    with open('id.json',"w") as d:
-        d.write(writer)
+    if message.from_user.id in data_json.keys():
+        pass
+    else:
+        data_json[message.from_user.id]="YES"
+        writer=json.dumps(data_json)
+        with open('id.json',"w") as d:
+            d.write(writer)
 @bot.message_handler(commands=['now'])
 def handle_command(message):
     bot.reply_to(message, f"{datetime.datetime.now()}")
