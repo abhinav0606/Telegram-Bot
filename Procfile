@@ -1,1 +1,1 @@
-worker: python3 whatsapp_bot.py
+worker: python whatsapp_bot.py
