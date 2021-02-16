@@ -139,7 +139,7 @@ def miotlab():
     for i in djson.keys():
         bot.send_message(i,f"Hello {bot.get_chat(i).first_name} You have MIOT LAB Class in 10 mins \n\nLink is https://meet.google.com/lookup/epgqghcnc6?authuser=2&hs=179")
 schedule.every().monday.at("08:00").do(function_to_run)
-schedule.every().tuesday.at("08:00").do(function_to_run)
+schedule.every().tuesday.at("15:21").do(function_to_run)
 schedule.every().wednesday.at("08:00").do(function_to_run)
 schedule.every().thursday.at("08:00").do(function_to_run)
 schedule.every().friday.at("08:00").do(function_to_run)
